@@ -7,13 +7,23 @@
   (println "Hello, World!"))
 
 (defn forward
-  "New position based on direction"
+  "Move forward to new position"
   [{x :x y :y r :r}]
   (case r
     :north {:x x :y (inc y) :r r}
     :south {:x x :y (dec y) :r r}
     :east {:x (inc x) :y y :r r}
     :west {:x (dec x) :y y :r r}
+    :else {x :x y :y r :r}))
+
+(defn backward
+  "Move backward to new position"
+  [{x :x y :y r :r}]
+  (case r
+    :north {:x x :y (dec y) :r r}
+    :south {:x x :y (inc y) :r r}
+    :east {:x (dec x) :y y :r r}
+    :west {:x (inc x) :y y :r r}
     :else {x :x y :y r :r}))
 
 (defn move-rover
