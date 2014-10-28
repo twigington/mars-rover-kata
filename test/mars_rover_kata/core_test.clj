@@ -38,6 +38,27 @@
   (testing "When no moves are provided, return the original position and direction."
     (is (= {:x 0 :y 0 :r :north} (move-rover {:x 0 :y 0 :r :north} [])))))
 
-(deftest one-forward
+(deftest forward-once
   (testing "Move Forward Once."
     (is (= {:x 0 :y 1 :r :north} (move-rover {:x 0 :y 0 :r :north} [:f])))))
+
+(deftest forward-twice
+  (testing "Move Forward Once."
+    (is (= {:x 0 :y 2 :r :north} (move-rover {:x 0 :y 0 :r :north} [:f :f])))))
+
+(deftest forward-backward
+  (testing "Move Forward Once."
+    (is (= {:x 0 :y 0 :r :north} (move-rover {:x 0 :y 0 :r :north} [:f :b])))))
+
+
+(deftest forward-right-left-backward
+  (testing "Move Forward Once."
+    (is (= {:x 0 :y 0 :r :north} (move-rover {:x 0 :y 0 :r :north} [:f :r :l :b])))))
+
+(deftest forward-right-forward-left
+  (testing "Move Forward Once."
+    (is (= {:x 6 :y 6 :r :north} (move-rover {:x 5 :y 5 :r :north} [:f :r :f :l])))))
+
+(deftest forward-right-forward-right
+  (testing "Move Forward Once."
+    (is (= {:x 6 :y 7 :r :south} (move-rover {:x 5 :y 5 :r :north} [:f :r :f :r :b])))))
