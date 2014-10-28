@@ -40,4 +40,4 @@
 
 (deftest one-forward
   (testing "Move Forward Once."
-    (is (= {:x 0 :y 1 :r :north} (move-rover {:x 0 :y 0 :r :north} [:forward])))))
+    (is (= {:x 0 :y 1 :r :north} (move-rover {:x 0 :y 0 :r :north} [:f])))))
