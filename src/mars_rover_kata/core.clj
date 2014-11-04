@@ -59,5 +59,7 @@
    (if (empty? movements)
      start-vector
      (reduce move-it start-vector movements)))
-  ([start-vector movements obstacles]
+  ([start-vector movements grid]
+   start-vector)
+  ([start-vector movements grid obstacles]
    start-vector))
